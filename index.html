@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hashCloud">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#Cloud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./public/stylesheets/style.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <nav ng-controller="NavCtrl">
+      <div class="navbar-wrapper">
+        <a ui-sref="home" class="brand-logo center">#cloud</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="" ng-show="currentUser">{{currentUser.displayName}}</a></li>
+          <li><a href="" ng-click="login()" ng-hide="currentUser">login</a></li>
+          <li><a href="" ng-click="logout()" ng-show="currentUser">logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div ui-view=""></div>
+        </div>
+      </div>
+    </div>
+    <script src="./packages/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <script src="./packages/lodash/lodash.min.js"></script>
+    <script src="./packages/firebase/firebase.js"></script>
+    <script src="./packages/angular/angular.min.js"></script>
+    <script src="./packages/angularfire/dist/angularfire.min.js"></script>
+    <script src="./packages/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="./packages/pleasejs/dist/Please.js"></script>
+    <script src="./public/javascripts/index.js"></script>
+    <script src="./public/javascripts/controllers/home.js"></script>
+    <script src="./public/javascripts/controllers/nav.js"></script>
+    <script src="./public/javascripts/services/fbservice.js"></script>
+    <script src="./public/javascripts/services/twitteruser.js"></script>
+
+  </body>
+</html>
