@@ -8,14 +8,9 @@ router.get('/', cors(), function(req, res, next) {
 });
 
 function twitterClient(params) {
-  console.log('`````````params', params);
-  console.log('process.env.CONSUMER_KEY', process.env.CONSUMER_KEY);
-  console.log('process.env.SECRET', process.env.CONSUMER_SECRET);
   return new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
-    // access_token_key: "3248180491-VqOfZVImZZTuc56Jh8CTB9G3SMHdgO9VlrRdif5",
-    // access_token_secret: "w7UgWEabp0TE5x75AYhVbFF6oQyaXrQTcaIn00QtkIlUb"
     access_token_key: params.ACCESS_KEY,
     access_token_secret: params.ACCESS_SECRET
   });
