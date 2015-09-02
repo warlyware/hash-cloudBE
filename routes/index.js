@@ -1,8 +1,9 @@
 var express = require('express');
 var Twitter = require("twitter");
 var router = express.Router();
+var cors = require('cors');
 
-router.get('/', function(req, res, next) {
+router.get('/', cors(), function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -20,7 +21,7 @@ function twitterClient(params) {
   });
 }
 
-router.post('/tweet', function(req, res, next) {
+router.post('/tweet', cors(), function(req, res, next) {
   var client = twitterClient(req.body);
 
   client.post('statuses/update', { status: req.body.tweet }, function(error, tweets, response){
@@ -33,7 +34,7 @@ router.post('/tweet', function(req, res, next) {
   });
 });
 
-router.post('/search', function(req, res, next) {
+router.post('/search', cors(), function(req, res, next) {
   console.log(req.body);
   var client = twitterClient(req.body);
   var words = req.body.words.toLowerCase().split(" ");
@@ -64,7 +65,7 @@ router.post('/search', function(req, res, next) {
 });
 
 
-router.post('/follow', function(req, res, next) {
+router.post('/follow', cors(), function(req, res, next) {
   var client = twitterClient(req.body);
 
   client.post('friendships/create', { screen_name: req.body.screen_name }, function(err, user, response) {
